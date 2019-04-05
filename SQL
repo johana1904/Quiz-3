@@ -1,0 +1,89 @@
+Usted deberá crear un repositorio en Github o Gitlab llamado "Quiz 3"
+El repositorio deberá ser PRIVADO (Solamente el usuario amartinezg deberá tener permisos de visualización)
+El quiz consiste de un solo punto el cual es práctico, usted deberá entregar un solo archivo con extensión .sql y deberá estar organizado, si un query no le funciona o está incompleto evite ingresarlo o simplemente envíelo comentado con dos guiones al principio (--).
+La URL del repositorio deberá ser pegada en el campo de respuesta de punto que se propone
+No coloque el delimitador de punto y coma (;) al final de cada línea en los queries
+No cambie los nombres de las cosas que se piden!
+Si el query no especifica cuáles columnas debe traer, simplemente traiga todas las columnas (*)
+Cualquier duda me llama a preguntarme sin interrumpir el desarrollo normal de la actividad.
+
+_______________________________________________________________________________________________
+1. Create a tablespace with name 'third_quiz' and three datafiles. Each datafile of 15Mb.
+-create tablespace third_quiz datafile 'base de datos' size 15M
+create tablespace third_quiz datafile 'base de datos1' size 15M
+create tablespace third_quiz datafile 'base de datos2' size 15M
+
+
+
+
+3.create an user named "user1" whit password "user1"
+
+3.1 The user should be able to connect
+
+create user user1
+identify by user1
+default tablespace third_quiz
+quota unlimited on third_quiz
+
+sqlplus user1/user1
+grant create sesion to user1
+grant connect to user1
+
+3.2 The user should has the profile "consultant"
+
+select tablespaces_name status from user1_tablespaces
+
+select file_name, tablespace_name status from user1_datafiles
+
+
+2.3 The user should be associated to the tablespace "third_quiz"
+
+
+2.4 The user should be able to create tables WITHOUT USING THE DBA ROLE. 
+
+
+
+4. Create an user named "user2" with password "user2"
+
+
+create user user2
+identify by user2
+default tablespace third_quiz
+quota unlimited on third_quiz
+
+4.1 The user should be able to connect
+
+sqlplus user2/user2
+grant create sesion to user1
+grant connect to user2
+
+4.2 The user should has the profile "consultant"
+
+select tablespaces_name status from user2_tablespaces
+
+select file_name, tablespace_name status from user2_datafiles
+
+
+4.3 The user should be associated to the tablespace "third_quiz"
+
+4.4 The user shouldn't be able to create tables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
