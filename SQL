@@ -85,5 +85,10 @@ select file_name, tablespace_name status from user2_datafiles
 
 
 
+
+
+
+
+
 	
 
